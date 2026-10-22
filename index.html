@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scripts and cheats | Ultimate Game Scripts & Mods</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0e14;
+            color: #e0e6ed;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ----- WELCOME ANIMATED SCREEN ----- */
+        #welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: radial-gradient(circle at center, #131b2e 0%, #07090e 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .welcome-sub {
+            font-size: 14px;
+            letter-spacing: 4px;
+            color: #00ff66;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+        }
+
+        .welcome-title {
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #ffffff, #00ff66, #00d2ff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .welcome-desc {
+            color: #8892b0;
+            max-width: 520px;
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .enter-btn {
+            background: transparent;
+            color: #00ff66;
+            border: 2px solid #00ff66;
+            padding: 12px 35px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .enter-btn:hover {
+            background: #00ff66;
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 255, 102, 0.6);
+            transform: translateY(-3px);
+        }
+
+        /* ----- TOP NAVBAR ----- */
+        .top-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 25px;
+            background: #0a0d14;
+            border-bottom: 1px solid #1a2332;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .brand-logo {
+            font-size: 18px;
+            font-weight: 800;
+            color: #00ff66;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(0, 255, 102, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            color: #8892b0;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 6px;
+            background: #111622;
+            border: 1px solid #1f293d;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            color: #00ff66;
+            border-color: #00ff66;
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
+        }
+
+        .nav-btn.telegram {
+            border-color: #0088cc55;
+            color: #0088cc;
+        }
+        .nav-btn.telegram:hover {
+            background: #0088cc;
+            color: #fff;
+        }
+
+        .nav-btn.youtube {
+            border-color: #ff000055;
+            color: #ff4444;
+        }
+        .nav-btn.youtube:hover {
+            background: #ff0000;
+            color: #fff;
+        }
+
+        /* ----- HEADER ----- */
+        header {
+            background: #111622;
+            padding: 35px 20px;
+            text-align: center;
+            border-bottom: 1px solid #1f293d;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        header h1 {
+            color: #00ff66;
+            font-size: 36px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
+            text-transform: lowercase;
+        }
+
+        header p {
+            color: #8892b0;
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 22px auto 0 auto;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            background: #182232;
+            border: 1px solid #28374d;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search-box:focus {
+            border-color: #00ff66;
+            box-shadow: 0 0 12px rgba(0, 255, 102, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        /* ----- PLATFORM & GAME CATEGORY FILTERS ----- */
+        .filter-section {
+            margin-bottom: 25px;
+        }
+
+        .platform-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            background: #182232;
+            color: #8892b0;
+            border: 1px solid #28374d;
+            padding: 10px 22px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background: #00ff66;
+            color: #0b0e14;
+            border-color: #00ff66;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
+        }
+
+        .game-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .cat-btn {
+            background: #131b2e;
+            color: #a0aec0;
+            border: 1px solid #23314a;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .cat-btn:hover, .cat-btn.active {
+            background: #23314a;
+            color: #00ff66;
+            border-color: #00ff66;
+        }
+
+        .cat-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* ----- SCRIPT CARDS WITH BACKGROUND OVERLAYS ----- */
+        .game-section {
+            position: relative;
+            background-color: #111622;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid #1f293d;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .game-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.22;
+            z-index: -1;
+            filter: brightness(0.6) contrast(1.1);
+        }
+
+        /* Image Overlays for Roblox Games */
+        .game-section[data-game="steal-an-egg"]::before {
+            background-image: url('data:image/jpeg;base64,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');
+        }
+
+        .game-section[data-game="steal-a-brainrot"]::before {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVIX8DduNxIbJOXYfqEuz7cO4_sDfGiw5tA6zvAtcZEg&s=10');
+        }
+
+        .game-section[data-game="blox-fruits"]::before {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYtWHy7RvGoPIPpoijmb82BwPrM0X8nXfjXrwk0gyWeA&s=10');
+        }
+
+        .game-section[data-game="99-night"]::before {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_oV_RuGkbypiiavdt93ZcaVRqASb6vZEVuTMv_buM8Q&s=10');
+        }
+
+        .game-title-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .game-section h2 {
+            color: #ffffff;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .game-section h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 18px;
+            background: #00ff66;
+            border-radius: 2px;
+        }
+
+        .platform-badge {
+            font-size: 11px;
+            background: rgba(30, 41, 59, 0.9);
+            color: #00d2ff;
+            border: 1px solid #00d2ff44;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .script-card {
+            background: rgba(12, 16, 23, 0.85);
+            backdrop-filter: blur(6px);
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .script-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .script-title {
+            font-weight: 700;
+            color: #ff5722;
+            font-size: 16px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #16202e;
+            border: 1px solid #28374d;
+            color: #e0e6ed;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .tag.keyless {
+            border-color: #00ff6655;
+            color: #00ff66;
+        }
+
+        .code-label {
+            font-size: 11px;
+            color: #64748b;
+            margin-bottom: 5px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        pre {
+            background: rgba(5, 7, 10, 0.9);
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+            color: #00ff66;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 13px;
+            margin-bottom: 12px;
+            border: 1px solid #151d2a;
+        }
+
+        button.copy-btn {
+            background: #00ff66;
+            color: #0b0e14;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 13px;
+            transition: 0.2s;
+        }
+
+        button.copy-btn:hover {
+            background: #00cc52;
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+        }
+
+        /* UPCOMING GAMES PROMO CARD */
+        .upcoming-box {
+            background: #111622;
+            border: 1px dashed #00ff6688;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .upcoming-box h3 {
+            color: #00ff66;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .upcoming-box p {
+            color: #8892b0;
+            font-size: 14px;
+        }
+
+        /* NOTIFICATION TOAST */
+        #toast {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #111622;
+            border: 1px solid #00ff66;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,255,102,0.3);
+            z-index: 20000;
+            display: none;
+            font-size: 14px;
+        }
+
+        /* MODAL POPUP */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #111622;
+            border: 1px solid #00ff66;
+            border-radius: 12px;
+            max-width: 520px;
+            width: 100%;
+            padding: 25px;
+            box-shadow: 0 0 30px rgba(0,255,102,0.25);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #8892b0;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: #00ff66;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #475569;
+            font-size: 13px;
+            border-top: 1px solid #111622;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NOTIFICATION TOAST -->
+    <div id="toast">Notification message</div>
+
+    <!-- ANIMATED WELCOME SCREEN -->
+    <div id="welcome-screen">
+        <div class="welcome-sub">✦ scripts and cheats ✦</div>
+        <div class="welcome-title">WELCOME</div>
+        <p class="welcome-desc">Your premium platform for verified Roblox scripts & cheats. Expanding soon to support top PC and Mobile titles!</p>
+        <button class="enter-btn" onclick="enterSite()">ENTER HUB 🚀</button>
+    </div>
+
+    <!-- TOP NAVIGATION BAR -->
+    <div class="top-navbar">
+        <div class="brand-logo">⚡ scripts and cheats</div>
+        <div class="nav-links">
+            <button class="nav-btn" onclick="openInfoModal()">📜 Info</button>
+            <a href="https://t.me/deltascriptall" target="_blank" class="nav-btn telegram">✈️ Telegram Channel</a>
+            <button class="nav-btn youtube" onclick="showToast('YouTube channel coming soon!')">▶️ YouTube Channel (Soon!)</button>
+            <button class="nav-btn" onclick="showToast('Community forum coming soon!')">💬 Community</button>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header>
+        <h1>scripts and cheats</h1>
+        <p>Verified keyless Roblox scripts & executor-ready cheats for Mobile & PC</p>
+        
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" class="search-box" placeholder="Search Roblox games, features, or cheats..." onkeyup="filterScripts()">
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- PLATFORM & GAME CATEGORY FILTERS -->
+        <div class="filter-section">
+            <div class="platform-tabs">
+                <button class="tab-btn active" onclick="setPlatform('all', this)">🌐 All Platforms</button>
+                <button class="tab-btn" onclick="setPlatform('pc', this)">💻 PC Hub</button>
+                <button class="tab-btn" onclick="setPlatform('mobile', this)">📱 Mobile Hub</button>
+            </div>
+
+            <div class="game-categories">
+                <button class="cat-btn active" onclick="setCategory('all', this)">All Games</button>
+                <button class="cat-btn" onclick="setCategory('steal-an-egg', this)">Steal an Egg</button>
+                <button class="cat-btn" onclick="setCategory('steal-a-brainrot', this)">Steal a Brainrot</button>
+                <button class="cat-btn" onclick="setCategory('blox-fruits', this)">Blox Fruits</button>
+                <button class="cat-btn" onclick="setCategory('99-night', this)">99 Night</button>
+                <button class="cat-btn disabled" onclick="showToast('More PC & Mobile games will be added soon!')">🎮 More Games Soon...</button>
+            </div>
+        </div>
+
+        <!-- GAMES CONTAINER -->
+        <div id="gamesContainer">
+
+            <!-- Steal an Egg -->
+            <div class="game-section" data-platform="pc mobile" data-game="steal-an-egg" data-keywords="roblox steal an egg auto farm hatch egg">
+                <div class="game-title-bar">
+                    <h2>Roblox: Steal an Egg</h2>
+                    <span class="platform-badge">CROSS PLATFORM</span>
+                </div>
+                <div class="script-card">
+                    <div class="script-header">
+                        <div class="script-title">🌶️ Steal an Egg Hub — Auto Farm & Hatch</div>
+                        <div class="tags">
+                            <span class="tag">☑️ Auto Farm</span>
+                            <span class="tag">☑️ Auto Hatch</span>
+                            <span class="tag keyless">☑️ Keyless</span>
+                        </div>
+                    </div>
+                    <div class="code-label">🌶️ LUA SCRIPT:</div>
+                    <pre><code>loadstring(game:HttpGet("loadstring(game:HttpGet("https://raw.githubusercontent.com/tienkhanh1/spicy/main/Chilli.lua"))()"))()</code></pre>
+                    <button class="copy-btn" onclick="copyScript(this)">Copy Script</button>
+                </div>
+            </div>
+
+            <!-- Steal a Brainrot -->
+            <div class="game-section" data-platform="pc mobile" data-game="steal-a-brainrot" data-keywords="roblox steal a brainrot 67 six seven auto steal">
+                <div class="game-title-bar">
+                    <h2>Roblox: Steal a Brainrot</h2>
+                    <span class="platform-badge">CROSS PLATFORM</span>
+                </div>
+                <div class="script-card">
+                    <div class="script-header">
+                        <div class="script-title">🤖 Steal a Brainrot (67) Hub</div>
+                        <div class="tags">
+                            <span class="tag">☑️ Auto Steal</span>
+                            <span class="tag">☑️ Speed Boost</span>
+                            <span class="tag keyless">☑️ Keyless</span>
+                        </div>
+                    </div>
+                    <div class="code-label">🤖 LUA SCRIPT:</div>
+                    <pre><code>loadstring(game:HttpGet("_G.ShibaBrainrot = true
+loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptjame/stealabrainrot/refs/heads/main/shiba.lua"))()"))()</code></pre>
+                    <button class="copy-btn" onclick="copyScript(this)">Copy Script</button>
+                </div>
+ </div>
+
+            <!-- Steal a Brainrot -->
+            <div class="game-section" data-platform="pc mobile" data-game="steal-a-brainrot" data-keywords="roblox steal a brainrot 67 six seven auto steal">
+                <div class="game-title-bar">
+                    <h2>Roblox: Steal a Brainrot</h2>
+                    <span class="platform-badge">CROSS PLATFORM</span>
+                </div>
+                <div class="script-card">
+                    <div class="script-header">
+                        <div class="script-title">🤖 Steal a Brainrot (67) Hub</div>
+                        <div class="tags">
+                            <span class="tag">☑️ Auto Steal</span>
+                            <span class="tag">☑️ Speed Boost</span>
+                            <span class="tag keyless">☑️ Keyless</span>
+                        </div>
+                    </div>
+                    <div class="code-label">🤖 LUA SCRIPT:</div>
+                    <pre><code>loadstring(game:HttpGet("_G.ShibaBrainrot = true
+loadstring(game:HttpGet("loadstring(game:HttpGet("https://raw.githubusercontent.com/Makuscripts/Steal-A-Brainrot/refs/heads/main/SAB-OPSCRIPT.lua"))()"))()"))()</code></pre>
+                    <button class="copy-btn" onclick="copyScript(this)">Copy Script</button>
+                </div>
+ </div>
+
+            <!-- Steal a Brainrot -->
+            <div class="game-section" data-platform="pc mobile" data-game="steal-a-brainrot" data-keywords="roblox steal a brainrot 67 six seven auto steal">
+                <div class="game-title-bar">
+                    <h2>Roblox: Steal a Brainrot</h2>
+                    <span class="platform-badge">CROSS PLATFORM</span>
+                </div>
+                <div class="script-card">
+                    <div class="script-header">
+                        <div class="script-title">🤖 Steal a Brainrot (67) Hub</div>
+                        <div class="tags">
+                            <span class="tag">☑️ Auto Steal</span>
+                            <span class="tag">☑️ Speed Boost</span>
+                            <span class="tag keyless">☑️ Keyless</span>
+                        </div>
+                    </div>
+                    <div class="code-label">🤖 LUA SCRIPT:</div>
+                    <pre><code>loadstring(game:HttpGet("_G.ShibaBrainrot = true
+loadstring(game:HttpGet("loadstring(game:HttpGet("https://raw.githubusercontent.com/yue-os/script/refs/heads/main/Y-Hub"))()">Copy Script</button>
+                </div>
+            </div>
+
+            <!-- Blox Fruits -->
+            <div class="game-section" data-platform="pc mobile" data-game="blox-fruits" data-keywords="roblox blox fruits auto farm chest level stats">
+                <div class="game-title-bar">
+                    <h2>Roblox: Blox Fruits</h2>
+                    <span class="platform-badge">CROSS PLATFORM</span>
+                </div>
+                <div class="script-card">
+                    <div class="script-header">
+                        <div class="script-title">⚡ Blox Fruits Universal Hub</div>
+                        <div class="tags">
+                            <span class="tag">☑️ Auto Farm Level</span>
+                            <span class="tag">☑️ Chest Farm</span>
+                            <span class="tag keyless">☑️ Keyless</span>
+                        </div>
+                    </div>
+                    <div class="code-label">⚡ LUA SCRIPT:</div>
+                    <pre><code>loadstring(game:HttpGet(loadstring(game:HttpGet("https://pastefy.app/RXlQ83AN/raw"))()))()</code></pre>
+                    <button class="copy-btn" onclick="copyScript(this)">Copy Script</button>
+                </div>
+            </div>
+
+            <!-- 99 Night -->
+            <div class="game-section" data-platform="pc mobile" data-game="99-night" data-keywords="roblox 99 night god mode full esp infinite stamina">
+                <div class="game-title-bar">
+                    <h2>Roblox: 99 Night</h2>
+                    <span class="platform-badge">CROSS PLATFORM</span>
+                </div>
+                <div class="script-card">
+                    <div class="script-header">
+                        <div class="script-title">🌙 99 Night God Mode Hub</div>
+                        <div class="tags">
+                            <span class="tag">☑️ God Mode</span>
+                            <span class="tag">☑️ Full ESP</span>
+                            <span class="tag keyless">☑️ Keyless</span>
+                        </div>
+                    </div>
+                    <div class="code-label">🌙 LUA SCRIPT:</div>
+                    <pre><code>loadstring(game:HttpGet(--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/nightsintheforest.lua", true))()))()</code></pre>
+                    <button class="copy-btn" onclick="copyScript(this)">Copy Script</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- UPCOMING GAMES ANNOUNCEMENT -->
+        <div class="upcoming-box">
+            <h3>🎮 Multi-Game Platform Expansion</h3>
+            <p>Currently supporting top Roblox games for Delta Executor. Additional PC and Mobile game cheats, hacks, and mods will be launched in future updates!</p>
+        </div>
+
+    </div>
+
+    <!-- DISQUS COMMENTS SECTION -->
+    <div class="container" style="margin-top: 40px; margin-bottom: 40px;">
+        <div style="background: #111622; border: 1px solid #1f293d; border-radius: 12px; padding: 25px; box-shadow: 0 6px 12px rgba(0,0,0,0.3);">
+            <h2 style="color: #00ff66; margin-bottom: 20px; font-size: 20px; display: flex; align-items: center; gap: 8px;">
+                <span style="display: inline-block; width: 4px; height: 18px; background: #00ff66; border-radius: 2px;"></span>
+                💬 Community Discussion & Feedback
+            </h2>
+            <div id="disqus_thread"></div>
+        </div>
+    </div>
+
+    <!-- DISQUS SCRIPT CONFIGURATION -->
+    <script>
+        var disqus_config = function () {
+            this.page.url = window.location.href;
+            this.page.identifier = window.location.pathname;
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://scripts-and-cheats.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+    <!-- INFORMATION MODAL -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeInfoModal()">&times;</span>
+            <h3 style="color:#00ff66; margin-bottom:15px;">📜 About scripts and cheats</h3>
+            <p style="color:#a0aec0; font-size:14px; margin-bottom:12px;">Welcome to <strong>scripts and cheats</strong>! Our platform currently provides tested, keyless Lua scripts for Roblox executors like Delta, Codex, and Hydrogen on Mobile and PC.</p>
+            <p style="color:#a0aec0; font-size:14px; margin-bottom:15px;">We are actively working to expand beyond Roblox to offer safe cheats and scripts for various other PC and Mobile multiplayer games in future updates.</p>
+            <h4 style="color:#ffffff; font-size:13px; margin-bottom:8px;">How to execute:</h4>
+            <ul style="color:#8892b0; font-size:13px; padding-left:20px; line-height:1.8;">
+                <li>Click <strong>Copy Script</strong> on your desired game cheat.</li>
+                <li>Open your preferred executor (Delta/Codex/Hydrogen/etc.).</li>
+                <li>Paste the Lua script into the editor and press Execute.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 scripts and cheats. Created for educational and community testing purposes.</p>
+    </footer>
+
+    <script>
+        let currentPlatform = 'all';
+        let currentCategory = 'all';
+
+        // ENTER SITE FROM WELCOME SCREEN
+        function enterSite() {
+            const welcome = document.getElementById('welcome-screen');
+            welcome.style.opacity = '0';
+            welcome.style.visibility = 'hidden';
+        }
+
+        // INFO MODAL
+        function openInfoModal() {
+            document.getElementById('infoModal').style.display = 'flex';
+        }
+
+        function closeInfoModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        // CUSTOM TOAST NOTIFICATION
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.innerText = message;
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+
+        // COPY SCRIPT FUNCTION WITH VISUAL FEEDBACK
+        function copyScript(btn) {
+            const codeBlock = btn.previousElementSibling;
+            const codeText = codeBlock.innerText;
+
+            const tempInput = document.createElement('textarea');
+            tempInput.value = codeText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const originalText = btn.innerText;
+            btn.innerText = "Copied! ✅";
+            btn.style.background = "#ffc107";
+            btn.style.color = "#000";
+
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.background = "#00ff66";
+                btn.style.color = "#0b0e14";
+            }, 2000);
+        }
+
+        // FILTER FUNCTIONS
+        function setPlatform(plat, element) {
+            currentPlatform = plat;
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+            filterScripts();
+        }
+
+        function setCategory(cat, element) {
+            currentCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                if(!btn.classList.contains('disabled')) btn.classList.remove('active');
+            });
+            element.classList.add('active');
+            filterScripts();
+        }
+
+        function filterScripts() {
+            const searchText = document.getElementById('searchInput').value.toLowerCase();
+            const sections = document.querySelectorAll('.game-section');
+
+            sections.forEach(sec => {
+                const secPlatform = sec.getAttribute('data-platform');
+                const secGame = sec.getAttribute('data-game');
+                const secText = (sec.innerText + " " + sec.getAttribute('data-keywords')).toLowerCase();
+
+                const matchPlatform = (currentPlatform === 'all') || secPlatform.includes(currentPlatform);
+                const matchCategory = (currentCategory === 'all') || (secGame === currentCategory);
+                const matchSearch = secText.includes(searchText);
+
+                if (matchPlatform && matchCategory && matchSearch) {
+                    sec.style.display = 'block';
+                } else {
+                    sec.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
